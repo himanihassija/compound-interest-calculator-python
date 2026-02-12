@@ -1,0 +1,57 @@
+def get_positive_float(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value <= 0:
+                print("Please enter a number greater than 0.")
+            else:
+                return value
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
+def get_compounding_frequency():
+    print("\nCompounding Frequency Options:")
+    print("1. Yearly")
+    print("2. Half-Yearly")
+    print("3. Quarterly")
+    print("4. Monthly")
+
+    choice = input("Choose option (1-4): ")
+
+    frequency_dict = {
+        "1": 1,
+        "2": 2,
+        "3": 4,
+        "4": 12
+    }
+
+    return frequency_dict.get(choice, 1)  # Default to yearly if invalid
+
+
+def calculate_compound_interest(principal, rate, years, n):
+    r = rate / 100  # convert percentage to decimal
+    amount = principal * (1 + r / n) ** (n * years)
+    return amount
+
+
+def main():
+    print("=== Compound Interest Calculator ===\n")
+
+    principal = get_positive_float("Enter principal amount: ")
+    rate = get_positive_float("Enter annual interest rate (%): ")
+    years = get_positive_float("Enter number of years: ")
+
+    n = get_compounding_frequency()
+
+    final_amount = calculate_compound_interest(principal, rate, years, n)
+    interest_earned = final_amount - principal
+
+    print("\n----- Results -----")
+    print(f"Principal Amount: ₹{principal:,.2f}")
+    print(f"Final Amount: ₹{final_amount:,.2f}")
+    print(f"Total Interest Earned: ₹{interest_earned:,.2f}")
+
+
+if __name__ == "__main__":
+    main()
