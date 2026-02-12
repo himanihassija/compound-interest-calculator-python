@@ -35,6 +35,10 @@ This project is ideal for beginners transitioning to intermediate Python who wan
 - Python 3
 - Built-in functions only (no external libraries)
 
+## Demo
+
+https://github.com/himanihassija/compound-interest-calculator-python/blob/main/compound%20interest%20calculator.png
+https://github.com/himanihassija/compound-interest-calculator-python/blob/main/compound%20interes%20calculator%202.png
 ## How to Run
 
 1. Make sure Python 3 is installed on your system.
